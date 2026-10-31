@@ -3,7 +3,6 @@ package lab3;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-// Клас для представлення у програмі даних про студента
 class Student {
     private final String name;
     private final String group;
@@ -38,12 +37,12 @@ public class Main {
         Scanner scanner = new Scanner(System.in, "UTF-8");
 
         while (true) {
-            System.out.println("\nОберіть опцію:");
+            System.out.println("\nОберіть опцію (Лабораторна 3):");
             System.out.println("1. Внести дані про нового студента");
             System.out.println("2. Відобразити список усіх студентів");
             System.out.println("3. Сформувати список студентів із балом вище заданого");
             System.out.println("4. Знайти найуспішнішого студента");
-            System.out.println("5. Вийти з програми");
+            System.out.println("5. Повернутися до головного меню");
             System.out.print("Ваш вибір: ");
 
             int choice = scanner.nextInt();
@@ -60,7 +59,6 @@ public class Main {
                     students.add(new Student(name, group, grade));
                     System.out.println("Дані про студента успішно додано.");
                 }
-
                 case 2 -> {
                     if (students.isEmpty()) {
                         System.out.println("Список студентів порожній.");
@@ -71,7 +69,6 @@ public class Main {
                         }
                     }
                 }
-
                 case 3 -> {
                     if (students.isEmpty()) {
                         System.out.println("Список студентів порожній.");
@@ -91,7 +88,6 @@ public class Main {
                         }
                     }
                 }
-
                 case 4 -> {
                     if (students.isEmpty()) {
                         System.out.println("Немає жодного студента в базі даних.");
@@ -106,16 +102,11 @@ public class Main {
                         bestStudent.display();
                     }
                 }
-
                 case 5 -> {
-                    System.out.println("Програма завершена.");
-                    scanner.close();
-                    System.exit(0);
+                    System.out.println("Вихід із лабораторної роботи 3...\n");
+                    return;
                 }
-
-                default -> {
-                    System.out.println("Неправильний вибір опції. Будь ласка, спробуйте знову.");
-                }
+                default -> System.out.println("Неправильний вибір опції. Будь ласка, спробуйте знову.");
             }
         }
     }

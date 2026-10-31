@@ -1,16 +1,12 @@
 package lab1;
 
-public class Main {
+class BisectionSolver {
 
-    public static double f(double x) {
+    public double f(double x) {
         return 2 * x + 3;
     }
 
-    public static void main(String[] args) {
-        double a = -1000.0;
-        double b = 1000.0;
-        double eps = 0.01;
-
+    public void solve(double a, double b, double eps) {
         if (f(a) * f(b) > 0) {
             System.out.println("На заданому відрізку функція не змінює знак.");
             return;
@@ -31,6 +27,13 @@ public class Main {
 
         c = (a + b) / 2.0;
         System.out.printf("Наближений розв'язок x = %.2f%n", c);
-        System.out.printf("Значення y(x) = %.2f%n", f(c));
+        System.out.printf("Значення y(x) = %.2f%n%n", f(c));
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        BisectionSolver solver = new BisectionSolver();
+        solver.solve(-1000.0, 1000.0, 0.01);
     }
 }

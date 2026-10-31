@@ -9,7 +9,7 @@ class Employee {
     public Employee(String fullName, String position, double baseSalary) {
         this.fullName = fullName;
         this.position = position;
-        this.baseSalary = baseSalary;
+        this.baseSalary = Math.max(0.0, baseSalary);
         this.bonus = 0.0;
     }
 
@@ -34,7 +34,9 @@ class Employee {
     }
 
     public void setBaseSalary(double baseSalary) {
-        this.baseSalary = baseSalary;
+        if (baseSalary >= 0) {
+            this.baseSalary = baseSalary;
+        }
     }
 
     public double getBonus() {
@@ -42,7 +44,9 @@ class Employee {
     }
 
     public void setBonus(double bonus) {
-        this.bonus = bonus;
+        if (bonus >= 0) {
+            this.bonus = bonus;
+        }
     }
 
     public double calculateTotalSalary() {
@@ -57,7 +61,7 @@ class Employee {
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("=== Демонстрація роботи з даними робітників ===\n");
+        System.out.println("\n=== Демонстрація роботи з даними робітників ===");
 
         Employee emp1 = new Employee("Іваненко Петро Олексійович", "Інженер-програміст", 45000.0);
         Employee emp2 = new Employee("Коваленко Марія Сергіївна", "Тестувальник ПЗ", 35000.0);
@@ -72,6 +76,6 @@ public class Main {
         emp3.displayInfo();
 
         double totalFund = emp1.calculateTotalSalary() + emp2.calculateTotalSalary() + emp3.calculateTotalSalary();
-        System.out.printf("\nЗагальний фонд нарахування зарплати: %.2f грн%n", totalFund);
+        System.out.printf("Загальний фонд нарахування зарплати: %.2f грн%n%n", totalFund);
     }
 }
