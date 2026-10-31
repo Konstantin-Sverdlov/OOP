@@ -104,6 +104,7 @@ public class Main {
                 }
                 case 5 -> {
                     System.out.println("Вихід із лабораторної роботи 3...\n");
+                    scanner.close();
                     return;
                 }
                 default -> System.out.println("Неправильний вибір опції. Будь ласка, спробуйте знову.");
