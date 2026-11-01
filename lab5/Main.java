@@ -180,7 +180,6 @@ class GameEngine {
                 default -> System.out.println("Неправильний вибір. Спробуйте знову.");
             }
 
-            hero.displayStatus();
             if (monster.isAlive()) {
                 System.out.println("Здоров'я монстра: " + monster.getHealth());
             }
